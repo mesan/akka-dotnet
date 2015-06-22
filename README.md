@@ -1,0 +1,2 @@
+# akka-dotnet
+Miniprosjekt Akka
