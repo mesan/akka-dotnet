@@ -51,8 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\ImageFetcher.cs" />
+    <Compile Include="Actors\ImageUrlFinder.cs" />
+    <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
-    <Compile Include="Messages\WikipediaParseRequest.cs" />
+    <Compile Include="Messages\ActorMessage.cs" />
+    <Compile Include="Messages\FindImageUrls.cs" />
+    <Compile Include="Messages\ImageUrl.cs" />
+    <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
