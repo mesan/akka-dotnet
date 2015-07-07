@@ -51,8 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actors\ImageFetcher.cs" />
-    <Compile Include="Actors\ImageUrlFinder.cs" />
+    <Compile Include="Actors\Image\ImageFetcher.cs" />
+    <Compile Include="Actors\Image\ImageUrlFinder.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
@@ -67,7 +67,10 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Actors\Link\" />
+    <Folder Include="Actors\Summary\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

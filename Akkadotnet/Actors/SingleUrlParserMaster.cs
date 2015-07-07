@@ -1,4 +1,5 @@
 ﻿using Akka.Actor;
+using Akkadotnet.Actors.Image;
 using Akkadotnet.Messages;
 
 namespace Akkadotnet.Actors

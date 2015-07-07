@@ -3,7 +3,7 @@ using Akka.Actor;
 using Akkadotnet.Messages;
 using Akkadotnet.Utility;
 
-namespace Akkadotnet.Actors
+namespace Akkadotnet.Actors.Image
 {
     public class ImageUrlFinder : ReceiveActor
     {

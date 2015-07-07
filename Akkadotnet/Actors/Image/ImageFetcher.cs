@@ -2,7 +2,7 @@
 using Akka.Actor;
 using Akkadotnet.Messages;
 
-namespace Akkadotnet.Actors
+namespace Akkadotnet.Actors.Image
 {
     public class ImageFetcher : ReceiveActor
     {
