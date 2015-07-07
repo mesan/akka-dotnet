@@ -1,8 +1,8 @@
 ﻿namespace Akkadotnet.Messages
 {
-    public class ActorMessage<T>
+    abstract public class ActorMessage<T>
     {
-        public ActorMessage(T contents)
+        protected ActorMessage(T contents)
         {
             Contents = contents;
         }
