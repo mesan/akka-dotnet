@@ -58,8 +58,8 @@
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
-    <Compile Include="Messages\FindImageUrls.cs" />
-    <Compile Include="Messages\ImageUrl.cs" />
+    <Compile Include="Messages\Image\FindImageUrls.cs" />
+    <Compile Include="Messages\Image\ImageUrl.cs" />
     <Compile Include="Messages\Link\FindLinks.cs" />
     <Compile Include="Messages\Link\HandleLink.cs" />
     <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
@@ -72,8 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Actors\Link\" />
     <Folder Include="Actors\Summary\" />
+    <Folder Include="Messages\Summary\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

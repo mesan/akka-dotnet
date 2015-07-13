@@ -1,4 +1,4 @@
-﻿namespace Akkadotnet.Messages
+﻿namespace Akkadotnet.Messages.Image
 {
     public class FindImageUrls : ActorMessage<string>
     {
