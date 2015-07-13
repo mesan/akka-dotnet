@@ -53,11 +53,15 @@
   <ItemGroup>
     <Compile Include="Actors\Image\ImageFetcher.cs" />
     <Compile Include="Actors\Image\ImageUrlFinder.cs" />
+    <Compile Include="Actors\Link\LinkFinder.cs" />
+    <Compile Include="Actors\Link\LinkHandler.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
     <Compile Include="Messages\FindImageUrls.cs" />
     <Compile Include="Messages\ImageUrl.cs" />
+    <Compile Include="Messages\Link\FindLinks.cs" />
+    <Compile Include="Messages\Link\HandleLink.cs" />
     <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />
