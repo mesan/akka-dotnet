@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Akka.Actor;
+using Akkadotnet.Exceptions;
 using Akkadotnet.Messages.Link;
 using Akkadotnet.Utility;
 
@@ -10,6 +12,19 @@ namespace Akkadotnet.Actors.Link
         public LinkFinder()
         {
             Receive<FindLinks>(msg => FindLinks(msg.Contents));
+        }
+
+        protected override SupervisorStrategy SupervisorStrategy()
+        {
+            return new OneForOneStrategy(
+                exception =>
+                {
+                    if (exception is InvalidLinkException)
+                    {
+                        return Directive.Stop;
+                    }
+                    return Directive.Escalate;
+                });
         }
 
         private void FindLinks(string url)

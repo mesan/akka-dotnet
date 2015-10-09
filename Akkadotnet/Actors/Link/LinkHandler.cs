@@ -1,5 +1,5 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
+using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Link;
 
@@ -14,12 +14,20 @@ namespace Akkadotnet.Actors.Link
 
         private void HandleLink(string url)
         {
-            //Hvis ikke relevant URL, la actoren feile? Eller sende melding til sin parent om irrelevant link og la parent stoppe denne?
-
-            if (url.StartsWith("/wiki") && !url.Contains(":"))
+            if (IsValidWikipediaUrl(url))
             {
-                Context.ActorSelection("/user/Master").Tell(new WikipediaUrlParseRequest("http://en.wikipedia.org" + url));
+                Context.ActorSelection("/user/Master")
+                    .Tell(new WikipediaUrlParseRequest("http://en.wikipedia.org" + url)); //prefix url ut i config
             }
+            else
+            {
+                throw new InvalidLinkException($"Invalid url {url}");
+            }
+        }
+
+        private bool IsValidWikipediaUrl(string url)
+        {
+            return url.StartsWith("/wiki") && !url.Contains(":");
         }
     }
 }

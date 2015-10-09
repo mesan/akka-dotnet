@@ -57,6 +57,7 @@
     <Compile Include="Actors\Link\LinkHandler.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
+    <Compile Include="Exceptions\InvalidLinkException.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
     <Compile Include="Messages\Image\FindImageUrls.cs" />
     <Compile Include="Messages\Image\ImageUrl.cs" />
