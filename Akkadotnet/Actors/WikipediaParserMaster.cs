@@ -12,7 +12,7 @@ namespace Akkadotnet.Actors
         public WikipediaParserMaster()
         {
             _visitedUrls = new HashSet<string>();
-            Receive<WikipediaUrlParseRequest>(msg => ParseNewUrl(msg.Contents));
+            Receive<UrlStringMessage>(msg => ParseNewUrl(msg.Contents));
         }
 
         private void ParseNewUrl(string url)

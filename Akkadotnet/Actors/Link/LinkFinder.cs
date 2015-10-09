@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Akka.Actor;
 using Akkadotnet.Exceptions;
-using Akkadotnet.Messages.Link;
+using Akkadotnet.Messages;
 using Akkadotnet.Utility;
 
 namespace Akkadotnet.Actors.Link
@@ -11,7 +10,7 @@ namespace Akkadotnet.Actors.Link
     {
         public LinkFinder()
         {
-            Receive<FindLinks>(msg => FindLinks(msg.Contents));
+            Receive<UrlStringMessage>(msg => FindLinks(msg.Contents));
         }
 
         protected override SupervisorStrategy SupervisorStrategy()
@@ -32,7 +31,7 @@ namespace Akkadotnet.Actors.Link
             var links = WebScraper.Scrape(url, "a").Select(node => node.GetAttributeValue("href", string.Empty));
             foreach (var link in links)
             {
-                Context.ActorOf<LinkHandler>().Tell(new HandleLink(link));
+                Context.ActorOf<LinkHandler>().Tell(new UrlStringMessage(link));
             }
         }
     }

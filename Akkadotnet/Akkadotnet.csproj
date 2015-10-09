@@ -63,6 +63,7 @@
     <Compile Include="Messages\Image\ImageUrl.cs" />
     <Compile Include="Messages\Link\FindLinks.cs" />
     <Compile Include="Messages\Link\HandleLink.cs" />
+    <Compile Include="Messages\UrlStringMessage.cs" />
     <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />

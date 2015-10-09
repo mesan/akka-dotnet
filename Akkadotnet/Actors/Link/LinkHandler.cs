@@ -1,7 +1,6 @@
 ﻿using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
-using Akkadotnet.Messages.Link;
 
 namespace Akkadotnet.Actors.Link
 {
@@ -9,7 +8,7 @@ namespace Akkadotnet.Actors.Link
     {
         public LinkHandler()
         {
-            Receive<HandleLink>(msg => HandleLink(msg.Contents));
+            Receive<UrlStringMessage>(msg => HandleLink(msg.Contents));
         }
 
         private void HandleLink(string url)

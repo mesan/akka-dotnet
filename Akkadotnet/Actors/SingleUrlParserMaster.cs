@@ -4,7 +4,6 @@ using Akkadotnet.Actors.Image;
 using Akkadotnet.Actors.Link;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Image;
-using Akkadotnet.Messages.Link;
 
 namespace Akkadotnet.Actors
 {
@@ -14,15 +13,15 @@ namespace Akkadotnet.Actors
 
         public SingleUrlParserMaster()
         {
-            Receive<WikipediaUrlParseRequest>(msg => ParseUrl(msg.Contents));
+            Receive<UrlStringMessage>(msg => ParseUrl(msg.Contents));
         }
 
         private void ParseUrl(string url)
         {
             Console.WriteLine("Parsing: {0}", url);
             //Links, image, summary
-            //Context.ActorOf<ImageUrlFinder>().Tell(new FindImageUrls(url));
-            Context.ActorOf<LinkFinder>().Tell(new FindLinks(url));
+            Context.ActorOf<ImageUrlFinder>().Tell(new UrlStringMessage(url));
+            Context.ActorOf<LinkFinder>().Tell(new UrlStringMessage(url));
         }
     }
 }

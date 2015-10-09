@@ -11,6 +11,7 @@ namespace Akkadotnet
         {
             var actorSystem = ActorSystem.Create("WikipediaParserActorSystem");
             var wikipediaParserMaster = actorSystem.ActorOf<WikipediaParserMaster>("Master");
+            wikipediaParserMaster.Tell(new UrlStringMessage("https://en.wikipedia.org/wiki/horse"));
             wikipediaParserMaster.Tell(new WikipediaUrlParseRequest("https://en.wikipedia.org/wiki/Actor_model"));
             Console.ReadKey();
         }
