@@ -9,7 +9,7 @@ namespace Akkadotnet.Actors.Image
     {
         public ImageUrlFinder()
         {
-            Receive<FindImageUrls>(msg => FindImages(msg.Contents));
+            Receive<UrlStringMessage>(msg => FindImages(msg.Contents));
         }
 
         private void FindImages(string url)

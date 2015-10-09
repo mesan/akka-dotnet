@@ -9,7 +9,6 @@ namespace Akkadotnet.Actors.Image
     {
         public ImageFetcher()
         {
-            Receive<ImageUrl>(msg => FetchImage(msg.Contents));
         }
 
         private void FetchImage(string url)
