@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Net.Configuration;
 using Akka.Actor;
+using Akkadotnet.Exceptions;
+using Akkadotnet.Messages;
 using Akkadotnet.Messages.Image;
 using Akkadotnet.Utility;
 
@@ -9,15 +11,28 @@ namespace Akkadotnet.Actors.Image
     {
         public ImageUrlFinder()
         {
-            Receive<UrlStringMessage>(msg => FindImages(msg.Contents));
+            Receive<SingleUrlParserMessage>(msg => FindImages(msg.Url, msg.Id));
         }
 
-        private void FindImages(string url)
+        protected override SupervisorStrategy SupervisorStrategy()
         {
-            var imageUrls = WebScraper.Scrape(url, "img").Select(node => node.GetAttributeValue("src", string.Empty));
+            return new OneForOneStrategy(
+                exception =>
+                {
+                    if (exception is ImageTooSmallException)
+                    {
+                        return Directive.Stop;
+                    }
+                    return Directive.Escalate;
+                });
+        }
+
+        private void FindImages(string url, int id)
+        {
+            var imageUrls = WebScraper.Scrape(url, "img");
             foreach (var imageUrl in imageUrls)
             {
-                Context.ActorOf<ImageFetcher>().Tell(new ImageUrl(imageUrl));
+                Context.ActorOf<ImageFetcher>().Tell(new ImageHtmlNode(imageUrl, id));
             }
         }
     }

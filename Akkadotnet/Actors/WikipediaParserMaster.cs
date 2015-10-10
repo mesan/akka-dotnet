@@ -25,7 +25,8 @@ namespace Akkadotnet.Actors
             if (!_visitedUrls.Contains(url))
             {
                _visitedUrls.Add(url);
-               Context.ActorOf<SingleUrlParserMaster>().Tell(new WikipediaUrlParseRequest(url));
+                var id = _visitedUrls.Count;
+               Context.ActorOf<SingleUrlParserMaster>($"SingleUrlParserMaster{id}").Tell(new SingleUrlParserMessage(url, id));
             }
         }
     }

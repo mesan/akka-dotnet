@@ -57,8 +57,11 @@
     <Compile Include="Actors\Link\LinkHandler.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
+    <Compile Include="Exceptions\ImageTooSmallException.cs" />
     <Compile Include="Exceptions\InvalidLinkException.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
+    <Compile Include="Messages\Image\ImageHtmlNode.cs" />
+    <Compile Include="Messages\SingleUrlParserMessage.cs" />
     <Compile Include="Messages\UrlStringMessage.cs" />
     <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
     <Compile Include="Utility\WebScraper.cs" />
@@ -68,10 +71,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actors\Summary\" />
-    <Folder Include="Messages\Summary\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

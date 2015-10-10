@@ -1,4 +1,5 @@
-﻿using Akka.Actor;
+﻿using System;
+using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 
@@ -16,7 +17,7 @@ namespace Akkadotnet.Actors.Link
             if (IsValidWikipediaUrl(url))
             {
                 Context.ActorSelection("/user/Master")
-                    .Tell(new WikipediaUrlParseRequest("http://en.wikipedia.org" + url)); //prefix url ut i config
+                    .Tell(new UrlStringMessage("http://en.wikipedia.org" + url)); //prefix url ut i config
             }
             else
             {
