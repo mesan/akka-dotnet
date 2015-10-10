@@ -61,9 +61,8 @@
     <Compile Include="Exceptions\InvalidLinkException.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
     <Compile Include="Messages\Image\ImageHtmlNode.cs" />
-    <Compile Include="Messages\SingleUrlParserMessage.cs" />
+    <Compile Include="Messages\UrlStringWithIdMessage.cs" />
     <Compile Include="Messages\UrlStringMessage.cs" />
-    <Compile Include="Messages\WikipediaUrlParseRequest.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

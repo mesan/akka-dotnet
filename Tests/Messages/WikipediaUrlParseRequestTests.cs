@@ -10,7 +10,7 @@ namespace Tests.Messages
         public void TheMessageShouldKeepItsContent()
         {
             const string url = "http://www.wikipedia.com";
-            var message = new WikipediaUrlParseRequest(url);
+            var message = new UrlStringMessage(url);
             Assert.AreEqual(message.Contents, url);
         }
     }

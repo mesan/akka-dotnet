@@ -8,17 +8,15 @@ namespace Akkadotnet.Actors
     public class SingleUrlParserMaster : ReceiveActor
     {
         public string ImageUrl { get; private set; }
-        private IActorRef _master;
 
         public SingleUrlParserMaster()
         {
-            Receive<SingleUrlParserMessage>(msg => ParseUrl(msg.Url, msg.Id));
+            Receive<UrlStringWithIdMessage>(msg => ParseUrl(msg.Url, msg.Id));
         }
 
         private void ParseUrl(string url, int id)
         {
-            //Links, image, summary
-            Context.ActorOf<ImageUrlFinder>().Tell(new SingleUrlParserMessage(url, id));
+            Context.ActorOf<ImageUrlFinder>().Tell(new UrlStringWithIdMessage(url, id));
             Context.ActorOf<LinkFinder>().Tell(new UrlStringMessage(url));
             Become(Collecting);
         }

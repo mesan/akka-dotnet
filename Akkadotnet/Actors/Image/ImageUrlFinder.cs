@@ -1,5 +1,4 @@
-﻿using System.Net.Configuration;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Image;
@@ -11,7 +10,7 @@ namespace Akkadotnet.Actors.Image
     {
         public ImageUrlFinder()
         {
-            Receive<SingleUrlParserMessage>(msg => FindImages(msg.Url, msg.Id));
+            Receive<UrlStringWithIdMessage>(msg => FindImages(msg.Url, msg.Id));
         }
 
         protected override SupervisorStrategy SupervisorStrategy()

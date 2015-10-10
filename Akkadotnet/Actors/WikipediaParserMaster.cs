@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using Akka.Actor;
 using Akkadotnet.Messages;
 
@@ -26,7 +28,6 @@ namespace Akkadotnet.Actors
             {
                _visitedUrls.Add(url);
                 var id = _visitedUrls.Count;
-               Context.ActorOf<SingleUrlParserMaster>($"SingleUrlParserMaster{id}").Tell(new SingleUrlParserMessage(url, id));
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Image;

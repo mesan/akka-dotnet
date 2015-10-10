@@ -1,6 +1,6 @@
 ﻿namespace Akkadotnet.Messages
 {
-    class UrlStringMessage : ActorMessage<string>
+    public class UrlStringMessage : ActorMessage<string>
     {
         public UrlStringMessage(string contents) 
             : base(contents)
