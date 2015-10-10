@@ -28,6 +28,7 @@ namespace Akkadotnet.Actors
             {
                _visitedUrls.Add(url);
                 var id = _visitedUrls.Count;
+               Context.ActorOf<SingleUrlParserMaster>($"SingleUrlParserMaster{id}").Tell(new UrlStringWithIdMessage(url, id));
             }
         }
     }

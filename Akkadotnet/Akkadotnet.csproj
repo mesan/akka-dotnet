@@ -56,12 +56,16 @@
     <Compile Include="Actors\Link\LinkFinder.cs" />
     <Compile Include="Actors\Link\LinkHandler.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
+    <Compile Include="Actors\Summary\SummaryFinder.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
     <Compile Include="Exceptions\ImageTooSmallException.cs" />
     <Compile Include="Exceptions\InvalidLinkException.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
+    <Compile Include="Messages\SummaryTextMessage.cs" />
     <Compile Include="Messages\Image\ImageHtmlNode.cs" />
     <Compile Include="Messages\UrlStringWithIdMessage.cs" />
+    <Compile Include="Messages\Summary\FindSummary.cs" />
+    <Compile Include="Messages\Summary\HandleSummary.cs" />
     <Compile Include="Messages\UrlStringMessage.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />
