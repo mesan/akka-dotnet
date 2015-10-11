@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 using Akkadotnet.Utility;
+using System.Linq;
 
 namespace Akkadotnet.Actors.Link
 {
@@ -31,7 +31,7 @@ namespace Akkadotnet.Actors.Link
             var links = WebScraper.Scrape(url, "a").Select(node => node.GetAttributeValue("href", string.Empty));
             foreach (var link in links)
             {
-                Context.ActorOf<LinkHandler>().Tell(new UrlStringMessage(link));
+                Context.ActorOf(ActorProps.LinkHandlerProps).Tell(new UrlStringMessage(link));
             }
         }
     }

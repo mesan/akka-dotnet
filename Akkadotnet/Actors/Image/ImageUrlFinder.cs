@@ -1,4 +1,5 @@
-﻿using Akka.Actor;
+﻿using System;
+using Akka.Actor;
 using Akkadotnet.Exceptions;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Image;
@@ -31,7 +32,7 @@ namespace Akkadotnet.Actors.Image
             var imageUrls = WebScraper.Scrape(url, "img");
             foreach (var imageUrl in imageUrls)
             {
-                Context.ActorOf<ImageFetcher>().Tell(new ImageHtmlNode(imageUrl, id));
+                Context.ActorOf(ActorProps.ImageFetcherProps).Tell(new ImageHtmlNode(imageUrl, id));
             }
         }
     }

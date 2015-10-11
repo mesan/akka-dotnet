@@ -1,6 +1,6 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akkadotnet.Messages;
+using System;
 
 namespace Akkadotnet.Actors
 {
@@ -12,8 +12,10 @@ namespace Akkadotnet.Actors
         }
         private void OutputWikipediaArticle(CompleteWikipediaArticleMessage articleMessage)
         {
+            var oldColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\n {articleMessage.Header}\n{articleMessage.ImageUrl}\n{articleMessage.Summary}\n{articleMessage.WikipediaUrl}");
+            Console.ForegroundColor = oldColor;
         }
     }
 }

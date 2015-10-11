@@ -1,12 +1,8 @@
-﻿using System;
-using Akka.Actor;
-using Akkadotnet.Actors.Header;
-using Akkadotnet.Actors.Image;
-using Akkadotnet.Actors.Link;
-using Akkadotnet.Actors.Summary;
+﻿using Akka.Actor;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Header;
 using Akkadotnet.Messages.Summary;
+using Akkadotnet.Utility;
 
 namespace Akkadotnet.Actors
 {
@@ -27,10 +23,10 @@ namespace Akkadotnet.Actors
         {
             _outputActor = Context.ActorSelection("/user/Master/Output");
             WikipediaUrl = url;
-            Context.ActorOf<ImageUrlFinder>().Tell(new UrlStringWithIdMessage(url, id));
-            Context.ActorOf<LinkFinder>().Tell(new UrlStringMessage(url));
-            Context.ActorOf<SummaryFinder>().Tell(new UrlStringMessage(url));
-            Context.ActorOf<HeaderFinder>().Tell(new UrlStringMessage(url));
+            Context.ActorOf(ActorProps.ImageUrlFinderProps).Tell(new UrlStringWithIdMessage(url, id));
+            Context.ActorOf(ActorProps.LinkFinderProps).Tell(new UrlStringMessage(url));
+            Context.ActorOf(ActorProps.SummaryFinderProps).Tell(new UrlStringMessage(url));
+            Context.ActorOf(ActorProps.HeaderFinderProps).Tell(new UrlStringMessage(url));
             Become(Collecting);
         }
 

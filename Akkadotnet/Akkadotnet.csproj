@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,9 +69,8 @@
     <Compile Include="Messages\Summary\SummaryTextMessage.cs" />
     <Compile Include="Messages\Image\ImageHtmlNode.cs" />
     <Compile Include="Messages\UrlStringWithIdMessage.cs" />
-    <Compile Include="Messages\Summary\FindSummary.cs" />
-    <Compile Include="Messages\Summary\HandleSummary.cs" />
     <Compile Include="Messages\UrlStringMessage.cs" />
+    <Compile Include="Utility\ActorProps.cs" />
     <Compile Include="Utility\WebScraper.cs" />
     <Compile Include="WikipediaParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

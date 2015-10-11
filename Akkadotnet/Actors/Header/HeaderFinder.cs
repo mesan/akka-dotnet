@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Akka.Actor;
 using Akkadotnet.Messages;
 using Akkadotnet.Messages.Header;
-using Akkadotnet.Messages.Summary;
 using Akkadotnet.Utility;
 
 namespace Akkadotnet.Actors.Header

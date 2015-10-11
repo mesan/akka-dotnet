@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Akkadotnet.Messages
+﻿namespace Akkadotnet.Messages
 {
     public class CompleteWikipediaArticleMessage
     {

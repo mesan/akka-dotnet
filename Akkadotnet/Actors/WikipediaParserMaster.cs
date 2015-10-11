@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akkadotnet.Messages;
+using System.Collections.Generic;
+using Akkadotnet.Utility;
 
 namespace Akkadotnet.Actors
 {
@@ -15,21 +14,21 @@ namespace Akkadotnet.Actors
         {
             _visitedUrls = new HashSet<string>();
             Receive<UrlStringMessage>(msg => ParseNewUrl(msg.Contents));
-            Context.ActorOf<OutputActor>("Output");
+            Context.ActorOf(ActorProps.OutputActorProps ,"Output");
         }
 
         private void ParseNewUrl(string url)
         {
             if (_visitedUrls.Count >= MaxSites)
             {
-                //noe spennende som skal skje her? Drepe actoren?
+                Self.Tell(PoisonPill.Instance); //bye bye cruel world...
                 return;
             }
             if (!_visitedUrls.Contains(url))
             {
                _visitedUrls.Add(url);
                 var id = _visitedUrls.Count;
-               Context.ActorOf<SingleUrlParserMaster>($"SingleUrlParserMaster{id}").Tell(new UrlStringWithIdMessage(url, id));
+               Context.ActorOf(ActorProps.SingleUrlParserMasterProps ,$"SingleUrlParserMaster{id}").Tell(new UrlStringWithIdMessage(url, id));
             }
         }
     }
