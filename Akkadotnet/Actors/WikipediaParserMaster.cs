@@ -15,6 +15,7 @@ namespace Akkadotnet.Actors
         {
             _visitedUrls = new HashSet<string>();
             Receive<UrlStringMessage>(msg => ParseNewUrl(msg.Contents));
+            Context.ActorOf<OutputActor>("Output");
         }
 
         private void ParseNewUrl(string url)

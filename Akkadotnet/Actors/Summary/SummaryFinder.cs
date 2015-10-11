@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Akka.Actor;
 using Akkadotnet.Messages;
+using Akkadotnet.Messages.Summary;
 using Akkadotnet.Utility;
 
 namespace Akkadotnet.Actors.Summary

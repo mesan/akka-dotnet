@@ -1,4 +1,4 @@
-﻿namespace Akkadotnet.Messages
+﻿namespace Akkadotnet.Messages.Summary
 {
     public class SummaryTextMessage : ActorMessage<string>
     {

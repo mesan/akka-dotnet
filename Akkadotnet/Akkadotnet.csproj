@@ -51,17 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\Header\HeaderFinder.cs" />
     <Compile Include="Actors\Image\ImageFetcher.cs" />
     <Compile Include="Actors\Image\ImageUrlFinder.cs" />
     <Compile Include="Actors\Link\LinkFinder.cs" />
     <Compile Include="Actors\Link\LinkHandler.cs" />
+    <Compile Include="Actors\OutputActor.cs" />
     <Compile Include="Actors\SingleUrlParserMaster.cs" />
     <Compile Include="Actors\Summary\SummaryFinder.cs" />
     <Compile Include="Actors\WikipediaParserMaster.cs" />
     <Compile Include="Exceptions\ImageTooSmallException.cs" />
     <Compile Include="Exceptions\InvalidLinkException.cs" />
     <Compile Include="Messages\ActorMessage.cs" />
-    <Compile Include="Messages\SummaryTextMessage.cs" />
+    <Compile Include="Messages\CompleteWikipediaArticleMessage.cs" />
+    <Compile Include="Messages\Header\HeaderTextMessage.cs" />
+    <Compile Include="Messages\Summary\SummaryTextMessage.cs" />
     <Compile Include="Messages\Image\ImageHtmlNode.cs" />
     <Compile Include="Messages\UrlStringWithIdMessage.cs" />
     <Compile Include="Messages\Summary\FindSummary.cs" />
@@ -75,6 +79,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
